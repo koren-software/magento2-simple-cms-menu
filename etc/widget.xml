@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Widget:etc/widget.xsd">
+    <widget class="Koren\SimpleCmsMenu\Block\Widget\Menu" id="koren_simplecmsmenu">
+        <label>CMS Menu</label>
+        <description>Show menu by selecting CMS pages</description>
+        <parameters>
+            <parameter name="pages" xsi:type="multiselect" visible="true"
+                source_model="Koren\SimpleCmsMenu\Model\Pages">
+                <label translate="true">Pages</label>
+            </parameter>
+        </parameters>
+    </widget>
+</widgets>

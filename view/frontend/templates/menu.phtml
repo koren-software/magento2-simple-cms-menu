@@ -1,0 +1,21 @@
+<?php
+/**
+ * Koren Software
+ *
+ * @package    Koren_SimpleCmsMenu
+ * @author     Koren Software
+ * @copyright  Copyright (c) 2019 Koren Software. ( https://koren.ee )
+ * @license    MIT
+ */
+
+$pages = $block->getPages();
+
+if (count($pages) > 0) {
+    echo '<div class="submenu">';
+        echo '<ul class="links">';
+            foreach ($pages as $page) {
+                echo '<li'.($page->isActive() ? ' class="active"' : '').'><a href="'.$page->getIdentifier().'">'.$page->getTitle().'</a></li>';
+            }
+        echo '</ul>';
+    echo '</div>';
+}
