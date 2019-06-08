@@ -6,7 +6,7 @@ Simple CMS menu widget for Magento 2. Select pages to show on menu. No hierarchi
 ## Install
 
 ````shell
-composer require koren-software/module-simple-cms-menu dev-master
+composer require koren-software/module-simple-cms-menu
 bin/magento setup:upgrade
 bin/magento cache:clean
 ````
