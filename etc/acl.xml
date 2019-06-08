@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Koren_Software::config" title="Koren Software Extensions" sortOrder="1">
+                    <resource id="Koren_SimpleCmsMenu::config" title="Simple CMS Menu" sortOrder="1">
+                        <resource id="Koren_SimpleCmsMenu::config_general" title="General" sortOrder="1" />
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>

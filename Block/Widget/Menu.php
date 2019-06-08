@@ -13,6 +13,9 @@ namespace Koren\SimpleCmsMenu\Block\Widget;
 use Magento\Framework\View\Element\Template;
 use Magento\Widget\Block\BlockInterface;
 
+/**
+ * Menu Widget
+ */
 class Menu extends Template implements BlockInterface
 {
     /**
@@ -27,28 +30,47 @@ class Menu extends Template implements BlockInterface
     protected $pageRepository;
     protected $currentPage;
 
+    /**
+     * Constructor
+     *
+     * @param \Magento\Framework\View\Element\Template\Context $context
+     * @param \Magento\Cms\Model\PageRepository $pageRepository
+     * @param \Magento\Cms\Model\Page $currentPage
+     * @param \Koren\SimpleCmsMenu\Helper\Data $helper
+     */
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Cms\Model\PageRepository $pageRepository,
-        \Magento\Cms\Model\Page $currentPage
+        \Magento\Cms\Model\Page $currentPage,
+        \Koren\SimpleCmsMenu\Helper\Data $helper
     ) {
-    
         $this->pageRepository = $pageRepository;
         $this->currentPage = $currentPage;
+        $this->helper = $helper;
         return parent::__construct($context);
     }
 
+    /**
+     * Get selected page IDs
+     *
+     * @return array
+     */
     protected function getPageIds()
     {
         return (array)explode(',', $this->getData('pages'));
     }
 
+    /**
+     * Get pages
+     *
+     * @return array
+     */
     public function getPages()
     {
         $pageIds = $this->getPageIds();
 
         $pages = [];
-        if (count($pageIds) > 0) {
+        if (!empty($pageIds)) {
             foreach ($pageIds as $pageId) {
                 try {
                     $page = $this->pageRepository->getById($pageId);
@@ -66,11 +88,24 @@ class Menu extends Template implements BlockInterface
         return $pages;
     }
 
-    // phpcs:disable PSR2.Methods.MethodDeclaration
+    /**
+     * Widget HTML
+     *
+     * @return void
+     *
+     * phpcs:disable PSR2.Methods.MethodDeclaration
+     */
     protected function _toHtml()
     {
         // If is not one of selected pages
-        if (!in_array($this->currentPage->getId(), $this->getPageIds())) {
+        // Must be enabled
+        // Check if needs to show only on selected pages
+        if (!$this->helper->isEnabled() ||
+            (
+                $this->helper->showOnlyOnSelected() &&
+                !in_array($this->currentPage->getId(), $this->getPageIds())
+            )
+        ) {
             return;
         }
 

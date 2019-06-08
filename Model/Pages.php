@@ -9,7 +9,7 @@
  */
 
 namespace Koren\SimpleCmsMenu\Model;
- 
+
 class Pages implements \Magento\Framework\Option\ArrayInterface
 {
     protected $pageFactory;
