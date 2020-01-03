@@ -4,7 +4,7 @@
  *
  * @package    Koren_SimpleCmsMenu
  * @author     Koren Software
- * @copyright  Copyright (c) 2019 Koren Software. ( https://koren.ee )
+ * @copyright  Copyright (c) 2020 Koren Software. (https://koren.ee)
  * @license    MIT
  */
 
@@ -79,6 +79,7 @@ class Menu extends Template implements BlockInterface
                     $page->setIsActive($this->currentPage->getId() === $page->getId());
 
                     $pages[] = $page;
+                    // phpcs:ignore Magento2.CodeAnalysis.EmptyBlock.DetectedCatch
                 } catch (\Exception $e) {
                     // Do nothing
                 }

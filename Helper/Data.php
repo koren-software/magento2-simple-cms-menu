@@ -4,16 +4,14 @@
  *
  * @package    Koren_SimpleCmsMenu
  * @author     Koren Software
- * @copyright  Copyright (c) 2019 Koren Software. ( https://koren.ee )
+ * @copyright  Copyright (c) 2020 Koren Software. (https://koren.ee)
  * @license    MIT
  */
 
 namespace Koren\SimpleCmsMenu\Helper;
 
-use Magento\Framework\App\Helper\AbstractHelper;
-use Magento\Framework\App\Helper\Context;
 use Magento\Framework\App\Config\ScopeConfigInterface;
-use Magento\Framework\Encryption\EncryptorInterface;
+use Magento\Framework\App\Helper\AbstractHelper;
 
 /**
  * Data helper
