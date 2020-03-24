@@ -25,7 +25,8 @@
         "tests": "../../vendor/bin/phpunit",
         "coverage": "../../vendor/bin/phpunit --coverage-html ./coverage",
         "format": "./vendor/bin/php-cs-fixer fix",
-        "phpcs": "./vendor/bin/phpcs --standard=../../vendor/magento/magento-coding-standard/Magento2 --ignore=vendor -s ."
+        "phpcs": "./vendor/bin/phpcs --standard=../../vendor/magento/magento-coding-standard/Magento2 --ignore=vendor -s .",
+        "package": "zip -r package.zip ./ -x '.git/*' -x 'vendor/*' -x '.editorconfig' -x '.php_cs' -x '.gitignore' -x '.DS_Store' -x 'phpunit.xml'"
     },
     "autoload": {
         "psr-4": {
